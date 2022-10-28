@@ -4,7 +4,7 @@
     "height": 400,
     "title": "GDP vs Happiness",
     "data": {
-    "url": "https://raw.githubusercontent.com/Mystcal/3179/main/happiness-gdp.csv"
+    "url": "https://raw.githubusercontent.com/Mystcal/homework10/main/happiness-gdp.csv"
     },
     "background": "rgb(241,241,241)",
     "transform": [{"filter": "Country_selection == null || datum.Continent == Country_selection"},
