@@ -1,2 +1,2 @@
 # homework10
-http://htmlpreview.github.io/homework10/
+http://mystical.github.io/homework10/
