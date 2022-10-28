@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF -8">
+    <meta name="viewport" content ="width =device-width, initial-scale=1.0">
+    <title>FIT3179 Data Visualisations II</title>
+      <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    
+</head>
+<body>
+    <section id="home">
+        <div class="main">
+            <h1>WORLD'S HAPPINESS, GDP & POPULATION</h1>
+            <p class="pbody">This visualisation explores which Countries in 2020 
+                have the most life satisfaction 
+                and how does this correlate to the nation's GDP per Capita 
+                and the median age of the people of the nation
+            </p>
+        </div>
+    </section>
+
+    <section id="Choropleth">
+        <h2 class="heading">Happiness of Countries</h2> 
+        <div id="map">
+            <div id="choropleth_map"></div>
+            <div id="map_des">
+            <p>The <span class="hilight">Choropleth Map</span> 
+                on the left shows the <span class="hilight">Life Satisfaction</span> 
+                of the <span class="hilight">Countries</span> in the world in year <span class="hilight">2020</span>.</p>
+                <br>
+            <p>It shows that <span class="hilight">Finland</span>  
+                is the <span class="hilight">happiest</span>  country in the world, 
+                the <span class="hilight">2nd happiest</span> is followed by
+                <span class="hilight">Denmark</span> .
+            </p>
+            <br>
+            <p>Whereas, <span class="hilight">Afghanistan</span> is the 
+                <span class="hilight">most unhappy</span> country in the world,
+                The <span class="hilight">2nd most unhappy</span> country is 
+                <span class="hilight">Lebanon</span>.
+            </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="plot1">
+        <h2 class="heading">Happiness vs GDP of countries</h2>
+        <div id="bubble">
+            <div id="bubble_plot"></div>
+            <div id="bubble_des">
+                <p>The <span class="hilight">Bubble Plot</span>
+                    on the right shows the relationship between the <span class="hilight">Life Satisfaction</span>
+                    and the <span class="hilight">GDP per capita</span> of the Countries in the world.
+                </p>
+                <br>
+                <p>Countries which plot in red is located in <span class="hilight">North America</span>, 
+                    plot in purple is located in <span class="hilight">South America</span>, 
+                    plot in orange is located in <span class="hilight">Europe</span>, 
+                    plot in light-blue is located in <span class="hilight">Africa</span>,
+                    plot in dark blue is located in <span class="hilight">Asia</span>, 
+                    whereas plot in brown is located in <span class="hilight">Oceania</span>.
+                </p>
+            </div>
+        </div> 
+    </section>
+
+    <script type="text/javascript">
+    var spec2 = "https://raw.githubusercontent.com/Mystcal/3179/main/choropleth_map-hapiness.vg.json";
+    vegaEmbed('#choropleth_map', spec2,{"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    </script>
+
+    <script type="text/javascript">
+    var spec1 = "https://raw.githubusercontent.com/Mystcal/3179/main/bubble_plot.vg.json";
+    vegaEmbed('#bubble_plot', spec1,{"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    </script>
+
+</body>
+</html>
