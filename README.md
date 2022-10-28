@@ -1,2 +1,2 @@
 # homework10
-https://mystcal.github.io/homewoork10/
+https://mystcal.github.io/homework10/
