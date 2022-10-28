@@ -1,0 +1,101 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "GDP vs Happiness",
+    "data": {
+    "url": "https://raw.githubusercontent.com/Mystcal/3179/main/happiness-gdp.csv"
+    },
+    "background": "rgb(241,241,241)",
+    "transform": [{"filter": "Country_selection == null || datum.Continent == Country_selection"},
+                    {"filter": "datum.Population > Population_Above"}],
+    "params":[
+        {
+        "name": "Country_selection",
+        "bind": {
+            "input": "select",
+            "options": [
+            null,
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+            ],
+            "labels":[
+            "Show All",
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+            ],
+            "name": "Country Selection "
+            }
+        },
+        {"name": "Population_Above","value": 0,
+                        "bind": {"input": "range",
+                        "min": 0,
+                        "max": 100000000,
+                        "step": 1000000,
+                        "name": "Minimum Population: "}
+                    }
+        ],
+    "mark": "circle",
+    "encoding": {
+        "x": {
+            "field": "GDP_per_capita",
+            "type": "quantitative",
+            "title": "GDP per Capita",
+            "axis": {"tickCount": 7},
+            "scale": {"type":"log","domain":[1,10000000]}
+            },
+        "y": {
+            "field": "Life_satisfaction",
+            "type": "quantitative"
+            },
+        "color": {
+            "field": "Continent",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+                ],
+                "range": [
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a6cee3",
+                "#377eb8",
+                "#a65628"
+                ]}
+        },
+        "opacity":{
+            "value": 0.7},
+        "size": {
+            "field": "Population",
+            "type": "quantitative",
+            "scale":{
+                "type": "threshold",
+                "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+                "range": [10, 50, 150, 200, 300, 400]
+            },
+            "legend": {"format":".1s"}
+            },
+        "tooltip": [
+            {"field":"Country", "type": "nominal"},
+            {"field": "GDP_per_capita","title":"GDP per capita", "type": "quantitative", "format":","},
+            {"field": "Life_satisfaction","title":"Life satisfaction", "type": "quantitative", "format":","},
+            {"field": "Population", "type": "quantitative", "format": ","}
+        ]
+            }
+            
+        }
+
